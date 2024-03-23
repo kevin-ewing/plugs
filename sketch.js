@@ -36,6 +36,7 @@ function setup() {
 
 function draw() {
   noStroke();
+  pixelDensity(1);
   background(0);
   // Draw all rectangles with spacing
   rects.forEach((r) => {
@@ -216,8 +217,8 @@ function intersect(r1, r2) {
 function addNoise() {
   // Add noise to the image
   loadPixels();
-  for (let i = 0; i < width * 4; i++) {
-    for (let j = 0; j < height * 4; j++) {
+  for (let i = 0; i < width; i++) {
+    for (let j = 0; j < height; j++) {
       let index = (i + j * width) * 4;
       pixels[index] = constrain(
         pixels[index] + random(-NOISE_DIFF, NOISE_DIFF),
